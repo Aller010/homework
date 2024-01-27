@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="socialLinks">
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+    <li><a href="https://www.youtube.com/">YouTube</a></li>
+</ul>
+
+<script>
+    const socialLinks = document.getElementById('socialLinks');
+    const links = socialLinks.getElementsByTagName('a');
+
+    for (const link of links) {
+        link.addEventListener('mouseover', () => {
+            const randomColor = getRandomColor();
+            link.style.color = randomColor;
+        });
+
+        link.addEventListener('mouseout', () => {
+            link.style.color = '';
+        });
+
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+        });
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+
+</body>
+</html>
